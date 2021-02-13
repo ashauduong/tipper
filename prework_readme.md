@@ -33,7 +33,6 @@ Here's a walkthrough of implemented user stories:
 
 ## Notes
 
-Describe any challenges encountered while building the app.
 I had issues connecting the controller initially, which confused me. I also was unsure on how to do the persistence portion (for less than ten minutes), many of the information I found allows variables to persist throughout restarts, but did not offer an option to set a time-specific deletion.
 
 ## License
