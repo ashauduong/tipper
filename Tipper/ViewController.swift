@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        billAmountTextField.keyboardType = UIKeyboardType.decimalPad
+        billAmountTextField.becomeFirstResponder()
+        
+        
     }
  
     @IBAction func calculateTip(_ sender: Any) {
@@ -28,9 +32,14 @@ class ViewController: UIViewController {
         let total = bill + tip
         
         //update tip amount
-        tipAmountLabel.text = String(format: "$%.2f", tip)
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.locale = Locale.current
+        
+        tipAmountLabel.text = currencyFormatter.string(from: NSNumber(value: tip))
         //update total amount
-        totalLabel.text = String(format: "$%.2f", total)
+        totalLabel.text = currencyFormatter.string(from: NSNumber(value: total))
     }
 }
 
